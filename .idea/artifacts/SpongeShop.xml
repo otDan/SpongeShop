@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SpongeShop">
+    <output-path>$PROJECT_DIR$/../../Servers/servers/SpongeForge/mods</output-path>
+    <root id="archive" name="SpongeShop.jar">
+      <element id="module-output" name="SpongeShop" />
+    </root>
+  </artifact>
+</component>
