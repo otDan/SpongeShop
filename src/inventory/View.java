@@ -11,11 +11,13 @@ import org.spongepowered.api.item.inventory.InventoryArchetype;
 import org.spongepowered.api.item.inventory.InventoryArchetypes;
 import org.spongepowered.api.item.inventory.InventoryProperty;
 import org.spongepowered.api.item.inventory.Slot;
+import org.spongepowered.api.item.inventory.property.InventoryTitle;
 import org.spongepowered.api.item.inventory.property.SlotIndex;
 import org.spongepowered.api.item.inventory.query.QueryOperationTypes;
 import org.spongepowered.api.item.inventory.transaction.SlotTransaction;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.api.scheduler.Task;
+import org.spongepowered.api.text.Text;
 
 import java.util.List;
 import java.util.Map;
@@ -36,6 +38,7 @@ public class View implements Animatable<Layout>, Displayable {
     private View(Builder builder, PluginContainer container) {
         Inventory.Builder b = Inventory.builder();
         builder.properties.forEach(b::property);
+        b.property(InventoryTitle.of(Text.of("§b§lShop")));
         inventory = b.of(builder.archetype)
                 .listener(ClickInventoryEvent.class, this::processClick)
                 .listener(InteractInventoryEvent.Open.class, this::processOpen)
